@@ -109,6 +109,69 @@ document.querySelector("#next").addEventListener("click", function (event) {
 })
 
 /*
+** Camera Module Control
+*/
+const player = document.querySelector('#camera-player');
+const capBtn = document.querySelector('#camera-capture');
+const canvas = document.createElement("canvas")
+const context = canvas.getContext('2d');
+const constraints = {
+    video: true,
+};
+let height, width
+document.querySelector("#camera-open").addEventListener("click", function (event) {
+    // Attach the video stream to the video element and autoplay.
+    navigator.mediaDevices.getUserMedia(constraints)
+        .then((stream) => {
+            player.srcObject = stream;
+            width = stream.getVideoTracks()[0].getSettings().width
+            height = stream.getVideoTracks()[0].getSettings().height
+            // Set Canvas Width and Height
+            canvas.width = width
+            canvas.height = height
+        });
+})
+
+capBtn.addEventListener('click', function (event) {
+    // Draw the video frame to the canvas.
+    context.drawImage(player, 0, 0, canvas.width, canvas.height);
+    const imgData = context.getImageData(0, 0, width, height).data
+
+    // Hold Recorder
+    player.pause()
+
+    // Send THe photo to the server
+    let xhttp = new XMLHttpRequest()
+    xhttp.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            let results = JSON.parse(this.response)
+            console.log(this.response)
+            let result = JSON.parse(this.response)
+            for (let i = 0; i < 81; i++) {
+                if (result[i] != 0) {
+                    cells[i].value = result[i]
+                }
+            }
+            // Destroy Stream and close modal
+            event.target.innerHTML = "Capture"
+            $("#camera-modal").modal("hide")
+
+            const tracks = player.srcObject.getTracks();
+            tracks.forEach(function (track) {
+                track.stop();
+            });
+            // player.srcObject = null
+        }
+    }
+    xhttp.open("POST", "/img", true);
+    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhttp.send("img=" + JSON.stringify(Object.values(imgData)) + "&width=" + width + "&height=" + height)
+
+    // Change Button to Processing
+    event.target.innerHTML = `<div class="spinner-border spinner-border-sm"></div> Processing`
+});
+
+/*
 ** Make Board and userInput
 */
 function makeBoard() {

@@ -325,6 +325,25 @@
 
     </div>
 
+    <button class="btn btn-outline-primary" data-toggle="modal" data-target="#camera-modal" id="camera-open">
+        <i class="fa fa-camera-retro"></i>
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade bd-example-modal-lg" id="camera-modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                </div>
+                <div class="modal-body">
+                    <video id="camera-player" autoplay></video>
+                    <button id="camera-capture" class="btn btn-primary">Capture</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="static/js/jquery-3.5.1.min.js"></script>
     <script src="static/js/bootstrap.min.js"></script>
     <script src="static/js/script.js"></script>

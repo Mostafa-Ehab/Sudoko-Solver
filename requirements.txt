@@ -1,2 +1,7 @@
 flask
 numpy
+imutils
+opencv-python
+tensorflow
+scikit-image
+scipy
