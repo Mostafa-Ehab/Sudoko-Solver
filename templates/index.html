@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/css/fontawesome.min.css" rel="stylesheet">
+    <link href="static/css/regular.min.css" rel="stylesheet">
+    <link href="static/css/solid.min.css" rel="stylesheet">
+
+    <link href="favicon.ico" rel="icon">
+
+    <link href="static/css/style.css" rel="stylesheet">
+
+    <title> Sudoku Solver </title>
+</head>
+
+<body>
+    <div class="main">
+
+        <h3>HTML Sudoku Board</h3>
+        <div>
+            <i class="fa fa-angle-left" id="prev"></i>
+            <table id="board">
+                <tr>
+                    <td>
+                        <input type="text" class="top-border left-border">
+                    </td>
+                    <td>
+                        <input type="text" class="top-border">
+                    </td>
+                    <td>
+                        <input type="text" class="top-border right-border">
+                    </td>
+
+                    <td>
+                        <input type="text" class="top-border left-border">
+                    </td>
+                    <td>
+                        <input type="text" class="top-border">
+                    </td>
+                    <td>
+                        <input type="text" class="top-border right-border">
+                    </td>
+
+                    <td>
+                        <input type="text" class="top-border left-border">
+                    </td>
+                    <td>
+                        <input type="text" class="top-border">
+                    </td>
+                    <td>
+                        <input type="text" class="top-border right-border">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="text" class="left-border">
+                    </td>
+                    <td>
+                        <input type="text">
+                    </td>
+                    <td>
+                        <input type="text" class="right-border">
+                    </td>
+
+                    <td>
+                        <input type="text" class="left-border">
+                    </td>
+                    <td>
+                        <input type="text">
+                    </td>
+                    <td>
+                        <input type="text" class="right-border">
+                    </td>
+
+                    <td>
+                        <input type="text" class="left-border">
+                    </td>
+                    <td>
+                        <input type="text">
+                    </td>
+                    <td>
+                        <input type="text" class="right-border">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="text" class="bottom-border left-border">
+                    </td>
+                    <td>
+                        <input type="text" class="bottom-border">
+                    </td>
+                    <td>
+                        <input type="text" class="bottom-border right-border">
+                    </td>
+
+                    <td>
+                        <input type="text" class="bottom-border left-border">
+                    </td>
+                    <td>
+                        <input type="text" class="bottom-border">
+                    </td>
+                    <td>
+                        <input type="text" class="bottom-border right-border">
+                    </td>
+
+                    <td>
+                        <input type="text" class="bottom-border left-border">
+                    </td>
+                    <td>
+                        <input type="text" class="bottom-border">
+                    </td>
+                    <td>
+                        <input type="text" class="bottom-border right-border">
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>
+                        <input type="text" class="top-border left-border">
+                    </td>
+                    <td>
+                        <input type="text" class="top-border">
+                    </td>
+                    <td>
+                        <input type="text" class="top-border right-border">
+                    </td>
+
+                    <td>
+                        <input type="text" class="top-border left-border">
+                    </td>
+                    <td>
+                        <input type="text" class="top-border">
+                    </td>
+                    <td>
+                        <input type="text" class="top-border right-border">
+                    </td>
+
+                    <td>
+                        <input type="text" class="top-border left-border">
+                    </td>
+                    <td>
+                        <input type="text" class="top-border">
+                    </td>
+                    <td>
+                        <input type="text" class="top-border right-border">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="text" class="left-border">
+                    </td>
+                    <td>
+                        <input type="text">
+                    </td>
+                    <td>
+                        <input type="text" class="right-border">
+                    </td>
+
+                    <td>
+                        <input type="text" class="left-border">
+                    </td>
+                    <td>
+                        <input type="text">
+                    </td>
+                    <td>
+                        <input type="text" class="right-border">
+                    </td>
+
+                    <td>
+                        <input type="text" class="left-border">
+                    </td>
+                    <td>
+                        <input type="text">
+                    </td>
+                    <td>
+                        <input type="text" class="right-border">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="text" class="bottom-border left-border">
+                    </td>
+                    <td>
+                        <input type="text" class="bottom-border">
+                    </td>
+                    <td>
+                        <input type="text" class="bottom-border right-border">
+                    </td>
+
+                    <td>
+                        <input type="text" class="bottom-border left-border">
+                    </td>
+                    <td>
+                        <input type="text" class="bottom-border">
+                    </td>
+                    <td>
+                        <input type="text" class="bottom-border right-border">
+                    </td>
+
+                    <td>
+                        <input type="text" class="bottom-border left-border">
+                    </td>
+                    <td>
+                        <input type="text" class="bottom-border">
+                    </td>
+                    <td>
+                        <input type="text" class="bottom-border right-border">
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>
+                        <input type="text" class="top-border left-border">
+                    </td>
+                    <td>
+                        <input type="text" class="top-border">
+                    </td>
+                    <td>
+                        <input type="text" class="top-border right-border">
+                    </td>
+
+                    <td>
+                        <input type="text" class="top-border left-border">
+                    </td>
+                    <td>
+                        <input type="text" class="top-border">
+                    </td>
+                    <td>
+                        <input type="text" class="top-border right-border">
+                    </td>
+
+                    <td>
+                        <input type="text" class="top-border left-border">
+                    </td>
+                    <td>
+                        <input type="text" class="top-border">
+                    </td>
+                    <td>
+                        <input type="text" class="top-border right-border">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="text" class="left-border">
+                    </td>
+                    <td>
+                        <input type="text">
+                    </td>
+                    <td>
+                        <input type="text" class="right-border">
+                    </td>
+
+                    <td>
+                        <input type="text" class="left-border">
+                    </td>
+                    <td>
+                        <input type="text">
+                    </td>
+                    <td>
+                        <input type="text" class="right-border">
+                    </td>
+
+                    <td>
+                        <input type="text" class="left-border">
+                    </td>
+                    <td>
+                        <input type="text">
+                    </td>
+                    <td>
+                        <input type="text" class="right-border">
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="text" class="bottom-border left-border">
+                    </td>
+                    <td>
+                        <input type="text" class="bottom-border">
+                    </td>
+                    <td>
+                        <input type="text" class="bottom-border right-border">
+                    </td>
+
+                    <td>
+                        <input type="text" class="bottom-border left-border">
+                    </td>
+                    <td>
+                        <input type="text" class="bottom-border">
+                    </td>
+                    <td>
+                        <input type="text" class="bottom-border right-border">
+                    </td>
+
+                    <td>
+                        <input type="text" class="bottom-border left-border">
+                    </td>
+                    <td>
+                        <input type="text" class="bottom-border">
+                    </td>
+                    <td>
+                        <input type="text" class="bottom-border right-border">
+                    </td>
+                </tr>
+            </table>
+            <i class="fa fa-angle-right" id="next"></i>
+        </div>
+
+        <div class="container buttons">
+            <input type="button" class="btn btn-primary float-left" value="Solve" onclick="solve()" id="solve">
+            <p id="num">0 of 0</p>
+            <input type="button" class="btn btn-danger float-right" value="Reset" onclick="reset()">
+        </div>
+
+    </div>
+
+    <script src="static/js/jquery-3.5.1.min.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+    <script src="static/js/script.js"></script>
+</body>
+
+</html>
