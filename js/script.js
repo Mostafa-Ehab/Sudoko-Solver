@@ -33,7 +33,7 @@ function solve() {
         }
         Solutions = []
         currentSolution(0, 0)
-        document.querySelector("#solve").value = "Solve"
+        document.querySelector("#solve").innerHTML = "Solve"
     }
     /*
     ** If Some Value not Exist [make Solve]
@@ -45,28 +45,23 @@ function solve() {
             }
         }
         Solutions = []
-        let xhttp = new XMLHttpRequest()
-        xhttp.onreadystatechange = function () {
-            if (this.readyState == 4 && this.status == 200) {
-                let results = JSON.parse(this.response)
-                if (results.length != 0) {
-                    for (let i = 0, len = results.length; i < len; i++) {
-                        Solutions.push(new Board(results[i]))
-                    }
-                    Solutions[0].show()
-                    currentSolution(0, Solutions.length)
-                    document.querySelector("#solve").value = "Unsolve"
-                } else {
-                    console.log("Check your Input")
-                    alert("Check your Input")
-                    document.querySelector("#solve").value = "Solve"
-                }
+        let solver = new Solver()
+        document.querySelector("#solve").innerHTML = "Solving..."
+        solver.solve(makeBoard()[1])
+        let results = solver.getSolutions()
+        if (results.length != 0) {
+            for (let i = 0, len = results.length; i < len; i++) {
+                Solutions.push(new Board(results[i]))
             }
+            Solutions[0].show()
+            currentSolution(0, Solutions.length)
+            console.log("Results found")
+            document.querySelector("#solve").innerHTML = "Unsolve"
+        } else {
+            console.log("Check your Input")
+            alert("Check your Input")
+            document.querySelector("#solve").innerHTML = "Solve"
         }
-        xhttp.open("POST", "/", true);
-        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xhttp.send("board=" + makeBoard()[1])
-        document.querySelector("#solve").value = "Solving..."
     }
 }
 
@@ -79,7 +74,7 @@ function reset() {
         cells[i].classList.remove("blue")
     }
     currentSolution(0, 0)
-    document.querySelector("#solve").value = "Solve"
+    document.querySelector("#solve").innerHTML = "Solve"
 }
 
 /*
@@ -122,7 +117,8 @@ function makeBoard() {
             board[i] = parseInt(cells[i].value)
         }
     }
-    return [solved, JSON.stringify(board)]
+    // return [solved, JSON.stringify(board)]
+    return [solved, board]
 }
 
 /*
@@ -142,3 +138,21 @@ function currentSolution(i, len) {
     }
     document.querySelector("#num").innerHTML = i + " of " + len
 }
+
+/*
+** Change Theme
+*/
+let themes = {
+    "light": ["#ddd", "#000", "#00f"],
+    "dark": ["#333533", "#fff", "#f00"]
+}
+let theme = "light"
+
+
+document.querySelector(".theme").addEventListener("click", function () {
+    theme = (theme == "dark") ? "light" : "dark"
+    console.log(theme)
+    document.documentElement.style.setProperty("--bg-color", themes[theme][0])
+    document.documentElement.style.setProperty("--main-color", themes[theme][1])
+    document.documentElement.style.setProperty("--alt-color", themes[theme][2])
+})

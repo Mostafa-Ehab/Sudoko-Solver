@@ -1,0 +1,152 @@
+/* ------------- CSS Colors --------------*/
+:root {
+    --bg-color: #ddd;
+    --main-color: #000;
+    --alt-color: #00f;
+    --solve-color: #007bff;
+    --reset-color: #ff0054;
+    --text-color: #fff;
+}
+
+/* ----------- Global Settings ----------- */
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+}
+
+/* ---------------- Table Design ------------- */
+.main {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+/* ----------------- Title Design ------------ */
+.main h3 {
+    margin-bottom: 20px;
+    color: var(--main-color);
+}
+
+.main table {
+    border: 2px solid var(--main-color);
+    display: inline-block;
+    border-collapse: collapse;
+    background-color: var(--bg-color);
+}
+
+.main table td {
+    border: 1px solid var(--main-color);
+    text-align: center;
+    vertical-align: middle;
+    background-color: var(--bg-color);
+}
+
+.main table input {
+    color: var(--main-color);
+    padding: 0;
+    border: 0;
+    text-align: center;
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+    background-color: var(--bg-color);
+    outline: none;
+}
+
+.main table .blue {
+    color: var(--alt-color);
+}
+
+.main table .top-border {
+    border-top: 2px solid var(--main-color);
+}
+
+.main table .right-border {
+    border-right: 2px solid var(--main-color);
+}
+
+.main table .bottom-border {
+    border-bottom: 2px solid var(--main-color);
+}
+
+.main table .left-border {
+    border-left: 2px solid var(--main-color);
+}
+
+.main #num {
+    display: inline-block;
+}
+
+/* -------- Solutions Navigation Buttons ---------- */
+.main #prev {
+    display: inline-block;
+    top: 50%;
+    position: absolute;
+    transform: translate(-50px, -65%);
+    font-size: 36px;
+    display: none;
+    color: var(--main-color);
+}
+
+.main #next {
+    display: inline-block;
+    top: 50%;
+    position: absolute;
+    transform: translate(32px, -65%);
+    font-size: 36px;
+    display: none;
+    color: var(--main-color);
+}
+
+/* ----------- Solve/Reset Buttons ----------- */
+
+.main .buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    color: var(--main-color);
+}
+
+.main p {
+    padding: 5px 20px;
+}
+
+.main .buttons .solve {
+    background-color: var(--solve-color);
+    color: var(--text-color);
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+
+.main .buttons .reset {
+    background-color: var(--reset-color);
+    color: var(--text-color);
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+
+.main .buttons .solve:hover,
+.main .buttons .reset:hover {
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+
+/* -------------------------------
+------------- Themes -------------
+------------------------------- */
+.theme {
+    position: fixed;
+    padding: 20px;
+    color: var(--main-color);
+    right: 0;
+}
