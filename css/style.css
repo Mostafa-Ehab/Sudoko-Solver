@@ -150,3 +150,9 @@ body {
     color: var(--main-color);
     right: 0;
 }
+
+@media screen and (max-width: 600px) {
+    .main>div {
+        transform: scale(0.8);
+    }
+}
