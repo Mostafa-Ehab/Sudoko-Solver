@@ -1,7 +1,7 @@
 from Camera.puzzle import find_board
 from Camera.puzzle import extract_digit
-from tensorflow.keras.preprocessing.image import img_to_array
-from tensorflow.keras.models import load_model
+from keras.utils import img_to_array
+from keras.models import load_model
 import numpy as np
 import cv2
 import imutils
