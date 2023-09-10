@@ -1,6 +1,6 @@
 /* ------------- CSS Colors --------------*/
 :root {
-    --bg-color: #ddd;
+    --bg-color: #fff;
     --main-color: #000;
     --alt-color: #00f;
     --solve-color: #007bff;
@@ -14,8 +14,19 @@
     margin: 0;
 }
 
+* {
+    transition: 2s background-color, 2s color, 2s border-color;
+}
+
 body {
     background-color: var(--bg-color);
+}
+
+.hr {
+    width: 100%;
+    height: 1px;
+    background-color: var(--main-color);
+    margin: 20px 0;
 }
 
 /* ---------------- Table Design ------------- */
@@ -136,10 +147,69 @@ body {
     border-radius: 5px;
 }
 
+.camera-btn {
+    border: solid var(--solve-color) 2px;
+    color: var(--solve-color);
+    background: var(--bg-color);
+    padding: 10px 20px;
+    outline: none;
+    border-radius: 5px;
+    font-size: 100%;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
 .main .buttons .solve:hover,
-.main .buttons .reset:hover {
+.main .buttons .reset:hover,
+.camera-btn:hover {
     transform: scale(1.1);
     transition: 0.5s;
+}
+
+.camera-modal {
+    position: fixed;
+    top: calc(-100% - 40px);
+    right: 0;
+    left: 0;
+    height: 100vh;
+    padding: 20px;
+    transition: 0.3s;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.camera-modal.active {
+    top: 0;
+}
+
+.camera-modal .modal-container {
+    margin: 20px auto;
+    max-width: 800px;
+    background-color: var(--bg-color);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.camera-modal .modal-title {
+    color: var(--main-color);
+}
+
+.camera-modal #camera-player {
+    display: block;
+    width: 100%;
+    padding-bottom: 20px;
+}
+
+.camera-modal .capture-btn {
+    background-color: var(--solve-color);
+    color: var(--text-color);
+    padding: 10px 20px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    display: block;
+    margin: 0 auto;
 }
 
 /* -------------------------------
@@ -150,6 +220,33 @@ body {
     padding: 20px;
     color: var(--main-color);
     right: 0;
+}
+
+/* -------------------------------
+--------- Error Message ----------
+------------------------------- */
+.error {
+    position: fixed;
+    top: -70px;
+    opacity: 0;
+    left: 0;
+    right: 0;
+    transition-property: top, opacity;
+    transition: 0.5s;
+}
+
+.error .error-msg {
+    background-color: #dc3545;
+    margin: 0 auto;
+    padding: 10px 20px;
+    color: #fff;
+    width: fit-content;
+    border-radius: 10px;
+}
+
+.error.active {
+    top: 100px;
+    opacity: 1;
 }
 
 @media screen and (max-width: 600px) {

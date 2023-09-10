@@ -59,7 +59,7 @@ function solve() {
             document.querySelector("#solve").innerHTML = "Unsolve"
         } else {
             console.log("Check your Input")
-            alert("Check your Input")
+            showError("Please, check your inputs")
             document.querySelector("#solve").innerHTML = "Solve"
         }
     }
@@ -140,19 +140,14 @@ function currentSolution(i, len) {
 }
 
 /*
-** Change Theme
+** Show Error Message
 */
-let themes = {
-    "light": ["#ddd", "#000", "#00f"],
-    "dark": ["#333533", "#fff", "#f00"]
+function showError(msg) {
+    const container = document.querySelector(".error")
+    container.querySelector(".error-msg").innerHTML = msg
+
+    container.classList.add("active")
+    setTimeout(() => {
+        container.classList.remove("active")
+    }, 2000)
 }
-let theme = "light"
-
-
-document.querySelector(".theme").addEventListener("click", function () {
-    theme = (theme == "dark") ? "light" : "dark"
-    console.log(theme)
-    document.documentElement.style.setProperty("--bg-color", themes[theme][0])
-    document.documentElement.style.setProperty("--main-color", themes[theme][1])
-    document.documentElement.style.setProperty("--alt-color", themes[theme][2])
-})

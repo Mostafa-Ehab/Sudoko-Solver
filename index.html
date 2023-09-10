@@ -321,10 +321,39 @@
             <p id="num">0 of 0</p>
             <button class="reset" onclick="reset()"> Reset </button>
         </div>
-
     </div>
+
+    <!-- Camera Button -->
+    <button class="camera-btn" id="camera-open">
+        <i class="fa fa-camera-retro"></i>
+    </button>
+
+    <!-- Camera Modal -->
+    <div class="camera-modal" id="camera-modal">
+        <div class="modal-container">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title">Camera</h1>
+                </div>
+                <div class="hr"></div>
+                <div class="modal-body">
+                    <video id="camera-player" autoplay></video>
+                    <button id="camera-capture" class="capture-btn">Capture</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="error">
+        <div class="error-msg">
+            Hello world
+        </div>
+    </div>
+
     <script src="/js/script.js"></script>
+    <script src="/js/camera.js"></script>
     <script src="/js/solve.js"></script>
+    <script src="/js/theme.js"></script>
 </body>
 
 </html>
