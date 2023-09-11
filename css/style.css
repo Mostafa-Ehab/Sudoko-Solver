@@ -169,7 +169,7 @@ body {
 
 .camera-modal {
     position: fixed;
-    top: calc(-100% - 40px);
+    top: -150%;
     right: 0;
     left: 0;
     height: 100vh;
