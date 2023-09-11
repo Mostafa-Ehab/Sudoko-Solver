@@ -7,7 +7,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const canvas = document.createElement("canvas")
     const context = canvas.getContext('2d');
     const constraints = {
-        video: true,
+        video: {
+            facingMode: 'environment'
+        }
     }
     let height, width
     document.querySelector("#camera-open").addEventListener("click", function (event) {
