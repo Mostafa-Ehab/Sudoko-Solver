@@ -147,7 +147,17 @@ body {
     border-radius: 5px;
 }
 
-.camera-btn {
+.img-buttons {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.img-buttons button,
+.img-buttons label {
     border: solid var(--solve-color) 2px;
     color: var(--solve-color);
     background: var(--bg-color);
@@ -155,9 +165,11 @@ body {
     outline: none;
     border-radius: 5px;
     font-size: 100%;
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
+    display: inline-block;
+}
+
+.img-buttons #file-upload {
+    display: none;
 }
 
 .main .buttons .solve:hover,
@@ -210,6 +222,9 @@ body {
     border-radius: 5px;
     display: block;
     margin: 0 auto;
+    gap: 5px;
+    display: flex;
+    align-items: center;
 }
 
 /* -------------------------------
@@ -247,6 +262,31 @@ body {
 .error.active {
     top: 100px;
     opacity: 1;
+}
+
+/* -------------------------------
+--------- Loading spinner --------
+------------------------------- */
+.loader {
+    border: 5px solid #f3f3f3;
+    /* Light grey */
+    border-top: 5px solid var(--solve-color);
+    /* Blue */
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    animation: spinner 2s linear infinite;
+    display: block;
+}
+
+@keyframes spinner {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 @media screen and (max-width: 600px) {

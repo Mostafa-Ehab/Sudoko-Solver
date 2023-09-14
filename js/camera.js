@@ -33,13 +33,15 @@ document.addEventListener("DOMContentLoaded", () => {
         // Hold Recorder
         player.pause()
 
-        fetch("https://sudoku-api.mostafa-ehab.com/img", {
+        var data = new FormData()
+        data.append("img", JSON.stringify(Object.values(imgData)))
+        data.append("width", width)
+        data.append("height", height)
+
+        // fetch("https://sudoku-api.mostafa-ehab.com/img", {
+        fetch("http://127.0.0.1:5000/img", {
             method: "POST",
-            headers: {
-                // "Content-Type": "application/json"
-                "Content-Type": "application/x-www-form-urlencoded"
-            },
-            body: `img=${JSON.stringify(Object.values(imgData))}&width=${width}&height=${height}`
+            body: data
         }).then(
             res => res.json()
         ).then(
@@ -74,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
         )
 
         // Change Button to Processing
-        event.target.innerHTML = `<div class="spinner-border spinner-border-sm"></div> Processing`
+        event.target.innerHTML = `<span class="loader"></span> Processing`
     })
 
     // Set Modal Control
@@ -87,7 +89,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (event.target == modal) {
             modal.classList.remove("active")
             // Destroy Stream and close modal
-            event.target.innerHTML = "Capture"
+            capBtn.innerHTML = "Capture"
             document.querySelector("#camera-modal").classList.remove("active")
 
             const tracks = player.srcObject.getTracks();

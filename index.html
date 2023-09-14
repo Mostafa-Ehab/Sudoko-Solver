@@ -324,9 +324,18 @@
     </div>
 
     <!-- Camera Button -->
-    <button class="camera-btn" id="camera-open">
-        <i class="fa fa-camera-retro"></i>
-    </button>
+    <div class="img-buttons">
+        <button id="camera-open">
+            <i class="fa fa-camera-retro"></i>
+        </button>
+        <!-- Camera Button -->
+        <form>
+            <input type="file" id="file-upload" name="file-upload">
+            <label for="file-upload" id="upload-label">
+                <i class="fa-solid fa-upload"></i>
+            </label>
+        </form>
+    </div>
 
     <!-- Camera Modal -->
     <div class="camera-modal" id="camera-modal">
@@ -352,6 +361,7 @@
 
     <script src="/js/script.js"></script>
     <script src="/js/camera.js"></script>
+    <script src="/js/file-upload.js"></script>
     <script src="/js/solve.js"></script>
     <script src="/js/theme.js"></script>
 </body>
