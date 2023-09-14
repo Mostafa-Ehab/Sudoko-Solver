@@ -38,8 +38,8 @@ document.addEventListener("DOMContentLoaded", () => {
         data.append("width", width)
         data.append("height", height)
 
-        // fetch("https://sudoku-api.mostafa-ehab.com/img", {
-        fetch("http://127.0.0.1:5000/img", {
+        fetch("https://sudoku-api.mostafa-ehab.com/img", {
+            // fetch("http://127.0.0.1:5000/img", {
             method: "POST",
             body: data
         }).then(
