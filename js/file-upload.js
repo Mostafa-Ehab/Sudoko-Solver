@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
             err => {
                 console.log(err)
                 showError("Couldn't analyze the image")
-                document.querySelector("upload-lable").innerHTML = '<i class="fa-solid fa-upload"></i>'
+                document.querySelector("#upload-label").innerHTML = '<i class="fa-solid fa-upload"></i>'
             }
         )
 
