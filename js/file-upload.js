@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
         var data = new FormData()
         data.append("img", document.querySelector("#file-upload").files[0])
 
-        fetch("https://sudoku-api.mostafa-ehab.com/img", {
+        fetch("https://sudoku-api.mostafa-ehab.com/file", {
             // fetch("http://127.0.0.1:5000/file", {
             method: "POST",
             body: data
